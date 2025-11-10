@@ -30,6 +30,8 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.codehuntspk.aivyra.ui.theme.Purple900
+import com.codehuntspk.aivyra.ui.theme.Slate900
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,7 +62,15 @@ fun LoginScreen(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(Color(0xFFD1D5DB)) // gray-300
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Slate900,
+                            Purple900.copy(alpha = 0.6f),
+                            Slate900
+                        )
+                    )
+                )
         ) {
             Column(
                 modifier = Modifier
@@ -82,11 +92,11 @@ fun LoginScreen(
                             text = "Welcome back",
                             fontSize = 30.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF111827) // gray-900
+                            color = Color.White
                         )
                         Text(
                             text = "Sign in to your account to continue.",
-                            color = Color(0xFF1F2937), // gray-800
+                            color = Color.White,
                             fontSize = 16.sp
                         )
                     }
@@ -95,7 +105,7 @@ fun LoginScreen(
                     if (registered) {
                         Card(
                             colors = CardDefaults.cardColors(
-                                containerColor = Color(0xFFD1FAE5) // green-100
+                                containerColor = Color.White
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {

@@ -21,15 +21,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AivyraTheme {
-                //IntroScreen()
-                LoginScreen(
-                    onLoginSuccess = {},
-                    onNavigateToSignup = {},
-                    onNavigateToForgotPassword = {},
-                    registered = false, // Pass from navigation args
-                    verified = false,
-                    resetSuccess = false
-                )
+                IntroScreen()
+//                LoginScreen(
+//                    onLoginSuccess = {},
+//                    onNavigateToSignup = {},
+//                    onNavigateToForgotPassword = {},
+//                    registered = false, // Pass from navigation args
+//                    verified = false,
+//                    resetSuccess = false
+//                )
             }
         }
     }
