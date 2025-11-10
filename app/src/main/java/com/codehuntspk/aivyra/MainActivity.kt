@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.codehuntspk.aivyra.ui.screens.IntroScreen
+import com.codehuntspk.aivyra.ui.screens.LoginScreen
 import com.codehuntspk.aivyra.ui.theme.AivyraTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AivyraTheme {
-                IntroScreen()
+                //IntroScreen()
+                LoginScreen(
+                    onLoginSuccess = {},
+                    onNavigateToSignup = {},
+                    onNavigateToForgotPassword = {},
+                    registered = false, // Pass from navigation args
+                    verified = false,
+                    resetSuccess = false
+                )
             }
         }
     }
