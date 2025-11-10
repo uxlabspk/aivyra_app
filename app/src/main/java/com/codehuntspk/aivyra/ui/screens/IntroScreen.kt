@@ -53,7 +53,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun IntroScreen(
-    onGetStarted: () -> Unit = {},
+    onNavigateToLogin: () -> Unit = {},
 ) {
     // Animation states
     var startAnimation by remember { mutableStateOf(false) }
@@ -166,7 +166,7 @@ fun IntroScreen(
             ) {
                 PrimaryButton(
                     text = "Get Started",
-                    onClick = onGetStarted,
+                    onClick = onNavigateToLogin,
                     modifier = Modifier.fillMaxWidth(0.85f),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Normal,
