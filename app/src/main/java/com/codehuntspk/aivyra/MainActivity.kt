@@ -39,9 +39,6 @@ class MainActivity : ComponentActivity() {
                             onLoginSuccess = { /* TODO: Implement navigation after login */ },
                             onNavigateToSignup = { /* TODO: Implement navigation to signup */ },
                             onNavigateToForgotPassword = { /* TODO: Implement navigation to forgot password */ },
-                            registered = false, // Pass from navigation args
-                            verified = false,
-                            resetSuccess = false
                         )
                     }
                 }

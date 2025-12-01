@@ -1,5 +1,6 @@
 package com.codehuntspk.aivyra.ui.screens
 
+import android.text.style.UnderlineSpan
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -28,6 +29,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codehuntspk.aivyra.ui.theme.Purple900
@@ -39,10 +42,7 @@ import com.codehuntspk.aivyra.ui.theme.Slate900
 fun LoginScreen(
     onLoginSuccess: () -> Unit,
     onNavigateToSignup: () -> Unit,
-    onNavigateToForgotPassword: () -> Unit,
-    registered: Boolean = false,
-    verified: Boolean = false,
-    resetSuccess: Boolean = false
+    onNavigateToForgotPassword: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -89,7 +89,7 @@ fun LoginScreen(
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Text(
-                            text = "Welcome back",
+                            text = "Welcome back \uD83D\uDC4B\uFE0F",
                             fontSize = 30.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
@@ -99,52 +99,6 @@ fun LoginScreen(
                             color = Color.White,
                             fontSize = 16.sp
                         )
-                    }
-
-                    // Success Messages
-                    if (registered) {
-                        Card(
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color.White
-                            ),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text(
-                                text = "Account created successfully! Please sign in.",
-                                color = Color(0xFF047857), // green-700
-                                modifier = Modifier.padding(12.dp)
-                            )
-                        }
-                    }
-
-                    if (verified) {
-                        Card(
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color(0xFFD1FAE5)
-                            ),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text(
-                                text = "Email verified successfully! You can now sign in.",
-                                color = Color(0xFF047857),
-                                modifier = Modifier.padding(12.dp)
-                            )
-                        }
-                    }
-
-                    if (resetSuccess) {
-                        Card(
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color(0xFFD1FAE5)
-                            ),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text(
-                                text = "Password reset successfully! You can now sign in with your new password.",
-                                color = Color(0xFF047857),
-                                modifier = Modifier.padding(12.dp)
-                            )
-                        }
                     }
 
                     // Error Message
@@ -175,7 +129,7 @@ fun LoginScreen(
                                 text = "Email",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = Color(0xFF374151) // gray-700
+                                color = Color.White
                             )
                             OutlinedTextField(
                                 value = email,
@@ -190,10 +144,10 @@ fun LoginScreen(
                                 },
                                 modifier = Modifier.fillMaxWidth(),
                                 colors = OutlinedTextFieldDefaults.colors(
-                                    unfocusedContainerColor = Color(0xFFE5E7EB), // gray-200
+                                    unfocusedContainerColor = Color(0xFFE5E7EB),
                                     focusedContainerColor = Color(0xFFE5E7EB),
-                                    unfocusedBorderColor = Color(0xFF9CA3AF), // gray-400
-                                    focusedBorderColor = Color(0xFF9333EA), // purple-600
+                                    unfocusedBorderColor = Color(0xFF9CA3AF),
+                                    focusedBorderColor = Color(0xFF9333EA),
                                     unfocusedTextColor = Color(0xFF111827),
                                     focusedTextColor = Color(0xFF111827)
                                 ),
@@ -222,7 +176,7 @@ fun LoginScreen(
                                     text = "Password",
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.Medium,
-                                    color = Color(0xFF374151)
+                                    color = Color.White
                                 )
                                 TextButton(
                                     onClick = onNavigateToForgotPassword,
@@ -231,8 +185,9 @@ fun LoginScreen(
                                     Text(
                                         text = "Forgot password?",
                                         fontSize = 14.sp,
-                                        color = Color(0xFF9333EA),
-                                        fontWeight = FontWeight.Medium
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Medium,
+                                        textDecoration = TextDecoration.Underline
                                     )
                                 }
                             }
@@ -296,15 +251,12 @@ fun LoginScreen(
                                 }
 
                                 isLoading = true
-                                // TODO: Implement API call
-                                // For now, simulate success after 2 seconds
-                                // In real implementation, call your API here
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(48.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF9333EA), // purple-600
+                                containerColor = Color(0xFF9333EA),
                                 disabledContainerColor = Color(0xFF9333EA).copy(alpha = 0.7f)
                             ),
                             shape = RoundedCornerShape(8.dp),
@@ -320,11 +272,12 @@ fun LoginScreen(
                         // Signup Link
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                text = "Don't have an account? ",
-                                color = Color(0xFF4B5563), // gray-600
+                                text = "Don't have an account?  ",
+                                color = Color.White,
                                 fontSize = 14.sp
                             )
                             TextButton(
@@ -334,8 +287,9 @@ fun LoginScreen(
                                 Text(
                                     text = "Create one",
                                     fontSize = 14.sp,
-                                    color = Color(0xFF9333EA),
-                                    fontWeight = FontWeight.Medium
+                                    color = Color.White,
+                                    fontWeight = FontWeight.Medium,
+                                    textDecoration = TextDecoration.Underline
                                 )
                             }
                         }
@@ -344,4 +298,16 @@ fun LoginScreen(
             }
         }
     }
+}
+
+
+
+@Preview(showBackground = true, widthDp = 400, heightDp = 700)
+@Composable
+fun LoginScreenPreview() {
+    LoginScreen(
+        onLoginSuccess = { /* TODO: Implement navigation after login */ },
+        onNavigateToSignup = { /* TODO: Implement navigation to signup */ },
+        onNavigateToForgotPassword = { /* TODO: Implement navigation to forgot password */ },
+    )
 }
