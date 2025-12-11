@@ -251,6 +251,9 @@ fun LoginScreen(
                                 }
 
                                 isLoading = true
+                                // TODO: Implement actual authentication logic here
+                                // For now, navigate directly to main screen
+                                onLoginSuccess()
                             },
                             modifier = Modifier
                                 .fillMaxWidth()

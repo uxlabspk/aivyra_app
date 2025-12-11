@@ -365,7 +365,9 @@ fun SignupScreen(
                                 }
 
                                 isLoading = true
-                                // TODO: Implement signup logic
+                                // TODO: Implement actual signup logic here
+                                // For now, navigate directly to main screen
+                                onSignupSuccess()
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
