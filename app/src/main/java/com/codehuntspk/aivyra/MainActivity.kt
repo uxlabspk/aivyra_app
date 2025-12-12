@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.codehuntspk.aivyra.ui.screens.*
 import com.codehuntspk.aivyra.ui.theme.AivyraTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 object Destinations {
     const val INTRO_ROUTE = "intro"
@@ -26,6 +27,7 @@ object Destinations {
     const val MAIN_ROUTE = "main"
 }
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
